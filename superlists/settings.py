@@ -25,7 +25,7 @@ SECRET_KEY = 'j@7c4_lx(p)mu@blp_b%8&_!afe&7cfnckwltxdoko)nb&=7sx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['superlists.eduardoriglesias.com']
+ALLOWED_HOSTS = ['superlists.eduardoriglesias.com', 'localhost']
 
 
 # Application definition
@@ -74,13 +74,24 @@ WSGI_APPLICATION = 'superlists.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
+import dj_database_url
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+# to facilitate on dokku environment | by resgef
+if os.environ.get('DATABASE_URL', ''):
+    DATABASES = {
+        'default': dj_database_url.config()
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'superlists',
+            'USER': 'odraude1022',
+            'HOST': 'localhost',
+            'PORT': '5432',
+            'PASSWORD': '',
+        }
+    }
 
 
 # Password validation
