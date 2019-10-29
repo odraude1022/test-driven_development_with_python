@@ -25,7 +25,7 @@ SECRET_KEY = 'j@7c4_lx(p)mu@blp_b%8&_!afe&7cfnckwltxdoko)nb&=7sx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['superlists.eduardoriglesias.com']
 
 
 # Application definition
