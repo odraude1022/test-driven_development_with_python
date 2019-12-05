@@ -27,6 +27,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['superlists.eduardoriglesias.com', 'localhost']
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'superlists.odraude1022@gmail.com'
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
 
 # Application definition
 
